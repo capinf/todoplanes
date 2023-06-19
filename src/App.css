@@ -1,0 +1,14 @@
+.barra {
+    width: 100%;
+    background-color: black;
+}
+
+.logo {
+    display: flex;
+    translate: 45%;
+    transform: translate(0%, -73%);
+  }
+
+header {
+    margin-bottom: -120px;
+}
