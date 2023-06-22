@@ -1,0 +1,41 @@
+{"Search":[{"title":"Fiat 500", 
+            "año": "1974", 
+            "carId":"fiat500", 
+            "Kilometraje":"38.000km", 
+            "img": "https://robbreport.com/wp-content/uploads/2021/06/1-2.jpg"},
+            {
+            "title":"Ford Ka", 
+            "año": "1997", 
+            "carId":"fordka", 
+            "Kilometraje":"78.000km", 
+            "img": "https://fotos.perfil.com/2023/04/02/ford-ka-1539508.jpg"
+            },
+            {
+                "title":"Chevrolet Camaro", 
+                "año": "1967", 
+                "carId":"camaro67", 
+                "Kilometraje":"36.000km", 
+                "img": "https://i.pinimg.com/564x/94/e9/90/94e9907298f57559c24d36970dd650a6---camaro-chevrolet-camaro.jpg"
+            },
+            {
+                "title":"Subaru Impreza", 
+                "año": "2007", 
+                "carId":"subimpreza", 
+                "Kilometraje":"27.000km", 
+                "img": "https://upload.wikimedia.org/wikipedia/commons/e/e5/Washauto06_subaru_impreza.jpg"
+            },
+            {
+                "title":"Renault Clio", 
+                "año": "1999", 
+                "carId":"clio", 
+                "Kilometraje":"68.000km", 
+                "img": "https://automotiva.com.ar/wp-content/uploads/2020/12/Renault_Clio-2.jpg"
+            },
+            {
+                "title":"citroen 3cv", 
+                "año": "1983", 
+                "carId":"3cv", 
+                "Kilometraje":"25.000km", 
+                "img": "https://www.fortunatofortino.com/wp-content/uploads/2020/12/super_america.jpg"
+            }
+            ]}
