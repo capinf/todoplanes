@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 
+
 export function NavBar () {
     return (
         <>
@@ -9,10 +10,9 @@ export function NavBar () {
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-auto" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="#">Inicio</Nav.Link>
+          <Nav.Link href='/'>Inicio</Nav.Link>
           <Nav.Link href="#">Clientes</Nav.Link>
-          <Nav.Link href="#">Autos</Nav.Link>
-          <Nav.Link href="#">Planes</Nav.Link>
+          <Nav.Link href="/cargaAutos">Autos</Nav.Link>
         </Nav>
       </Navbar.Collapse>
             <div className="logo">

@@ -1,37 +1,20 @@
-import { NavBar } from './components/NavBar'
 import './App.css'
-import CarouselComponent from './components/Carrousel'
-import {Cars} from './components/Cars'
-import responseCars from './datatest/withresults.json'
-import noResults from './datatest/withoutresults.json'
-
+import { Route, Routes } from 'react-router-dom'
+import { Home } from './components/Home'
+import { CargaAutos } from './components/CargaAutos'
+import { NavBar } from './components/NavBar'
 
 function App() {
-  const cars = responseCars.Search
-  console.log(cars)
 
   return (
     <>
-    <div className='page'>
-      <header>
-        <h1>Todo Planes</h1>
-        <NavBar />
-        <div><CarouselComponent /></div>
-      </header>
-
-      <main>
-        <section><Cars cars={cars} /></section>
-
-      </main>
-
-      <footer>
-
-        <h3>Documentacion + Redes sociales</h3>
-
-      </footer>
-      </div>
+      <NavBar/>
+      <Routes>
+      <Route path="/cargaAutos" element ={<CargaAutos/>}></Route>
+      <Route path='/' element ={<Home/>}></Route>
+      </Routes>
     </>
+
   )
 }
-
 export default App
