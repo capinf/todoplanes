@@ -10,18 +10,22 @@ export function Home() {
   return (
     <>
     <header><CarouselComponent/></header>
-    <body>
-      <div className='gridAutos'>
-        <ul>
+    <body className='Card'>
+      <div className='carta-autos'>
+        <ul className='gridAutos'>
         {
         Cars.map(car =>(
 
-        <li key={car.carId}>
-        <img src={car.img} alt="" width="150px" height="150px" />
+        <li className='card-list' key={car.carId}>
+        <img className='card-image' src={car.img} alt="" />
         <h1 className='title'>{car.title}</h1>
-        <p className='info'>{car.Kilometraje}</p>
-        <p className='info'>{car.Kilometraje}</p>
+        <div className="card-details">
+        <p className='info'>Kilometraje: {car.Kilometraje}</p>
+        <p className='info'>Modelo: {car.año}</p>
         <p className='info'>{car.descripcion}</p>
+        <button className='buttoncito'><img src="/img/buttoncito.png" alt="boton de contacto" width="100px" height="100px" /></button>
+        <button className='whatsapplogo'><img src="" alt="" /></button>
+        </div>
         </li>
         ))
          }

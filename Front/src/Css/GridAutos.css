@@ -1,16 +1,92 @@
-body {
+.Card {
     width: 100%;
+    align-items: center
+}
+
+.carta-autos {
+    border: 10px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+
 }
 .gridAutos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 10px;
+}
+
+.card-list {
+    background: linear-gradient(to bottom right, #9bdf95, #3d9b41);
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-details {
+    flex: 1;
 }
 
 .title {
-    font-size:medium;
+    font-size:23px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+    color: whitesmoke;
+    font-style: italic;
+
 }
 
 .info {
-    font-size: small;
+    font-size:12px;
+    font-family: "Roboto", sans-serif;
+    font-weight: thin;
+    color: whitesmoke;
 }
+/* tracidional */
+/* .buttoncito {
+    font-family: "Roboto", sans-serif;
+    color: whitesmoke;
+    border-color: rgb(247, 247, 247);
+    border-radius: 40px;
+    border: 1.333px solid var(--neutral-colors-headings-black, #fcfcfc);
+    background: linear-gradient(180deg, #54C65F 13.54%, rgba(255, 255, 255, 0.00) 100%);
+} */
+
+/* botonimagen */
+.buttoncito {
+    background-color: transparent;
+    border-color: transparent;
+    box-sizing: content-box;
+}
+
+.card-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 16px;
+    border-radius: 50%;
+  }
+
+
+  /* Responsive */
+@media screen and (min-width: 600px) {
+    .carta-autos {
+      flex-direction: row;
+      text-align: left;
+    }
+  
+    .card-image {
+      margin-bottom: 0;
+      margin-right: 16px;
+    }
+  }
