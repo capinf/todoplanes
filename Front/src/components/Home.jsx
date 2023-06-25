@@ -23,8 +23,8 @@ export function Home() {
         <p className='info'>Kilometraje: {car.Kilometraje}</p>
         <p className='info'>Modelo: {car.año}</p>
         <p className='info'>{car.descripcion}</p>
-        <button className='buttoncito'><img src="/img/buttoncito.png" alt="boton de contacto" width="100px" height="100px" /></button>
-        <button className='whatsapplogo'><img src="" alt="" /></button>
+        <button className='buttoncito'><img src="/img/buttoncito2.png" alt="boton de contacto" width="100px" height="100px" /></button>
+        <button className='whatsapplogo'><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></button>
         </div>
         </li>
         ))
