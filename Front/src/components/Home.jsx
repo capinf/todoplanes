@@ -10,7 +10,7 @@ export function Home() {
   return (
     <>
     <header><CarouselComponent/></header>
-    <body className='Card'>
+    <div className='Card'>
       <div className='carta-autos'>
         <ul className='gridAutos'>
         {
@@ -31,7 +31,7 @@ export function Home() {
          }
         </ul>
       </div>
-    </body>
+    </div>
       <div className="App">
       </div>
     </>

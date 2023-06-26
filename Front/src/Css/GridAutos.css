@@ -1,10 +1,11 @@
 .Card {
     width: 100%;
-    align-items: center
+    align-items: center;
+    background-color: black;
 }
 
 .carta-autos {
-    border: 10px solid #ccc;
+    border: 10px solid #000000;
     border-radius: 8px;
     padding: 16px;
     display: flex;
@@ -22,7 +23,7 @@
 }
 
 .card-list {
-    background: linear-gradient(to bottom right, #9bdf95, #3d9b41);
+    background: linear-gradient(to bottom right, #97ff8e, #3d9b41);
     border-radius: 8px;
     padding: 10px;
     display: flex;
