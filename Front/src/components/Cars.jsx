@@ -1,18 +1,31 @@
+import '../Css/GridAutos.css'
 function ListOfCars ({cars}) {
 
     return (
-        <ul className="cars">
-            {
-              cars.map(car =>(
-                <li className="car" key={car.carId}>
-                    <h3>{car.title}</h3>
-                    <p>{car.año}</p>
-                    <p>{car.Kilometraje}</p>
-                    <img src={car.img} alt={car.title} style={{ width: '100%', height: '120px' }} />
-                </li>
-              ))  
-            }
+        <>
+        <div className='Card'>
+      <div className='carta-autos'>
+        <ul className='gridAutos'>
+        {
+        cars.map(car =>(
+
+            <li className='card-list' key={car.id}>
+            <img className='card-image' src={car.img} alt="" />
+            <h1 className='title'>{car.title}</h1>
+            <div className="card-details">
+            <p className='info'>Kilometraje: {car.kilometraje}</p>
+            <p className='info'>Modelo: {car.año}</p>
+            <p className='info'>{car.descripcion}</p>
+            <button className='buttoncito'><img src="/img/buttoncito.png" alt="boton de contacto" width="100px" height="100px" /></button>
+            <button className='whatsapplogo'><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></button>
+            </div>
+            </li>
+        ))
+         }
         </ul>
+      </div>
+        </div>
+        </>
     )
 }
 

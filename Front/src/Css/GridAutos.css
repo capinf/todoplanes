@@ -19,11 +19,11 @@
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 10px;
+    gap: 15px;
 }
 
 .card-list {
-    background: linear-gradient(to bottom right, #97ff8e, #3d9b41);
+    background: linear-gradient(to bottom right, #ffffff, #e6fde7);
     border-radius: 8px;
     padding: 10px;
     display: flex;
@@ -31,7 +31,7 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px rgb(122, 255, 133);
 }
 
 .card-details {
@@ -42,16 +42,16 @@
     font-size:23px;
     font-family: "Roboto", sans-serif;
     font-weight: bold;
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
     font-style: italic;
 
 }
 
 .info {
-    font-size:12px;
+    font-size:16px;
     font-family: "Roboto", sans-serif;
     font-weight: thin;
-    color: whitesmoke;
+    color: rgb(0, 0, 0);
 }
 /* tracidional */
 /* .buttoncito {

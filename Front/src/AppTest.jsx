@@ -1,22 +1,24 @@
 import './App.css'
 import { Route, Routes } from 'react-router-dom'
-import { Home } from './components/Home'
 import { CargaAutos } from './components/CargaAutos'
-import { NavBar } from './components/NavBar'
+import { NavBarTest } from './components/NavBarTest'
+import { HomeTest } from './components/HomeTest'
+import { Login } from './components/Login'
 import { CargaPlan } from './components/QuieroVenderMiPlan'
 
-function App() {
+function AppTest() {
 
   return (
     <>
-      <NavBar/>
+      <NavBarTest/>
       <Routes>
       <Route path="/cargaAutos" element ={<CargaAutos/>}></Route>
-      <Route path='/' element ={<Home/>}></Route>
+      <Route path='/' element ={<HomeTest/>}></Route>
+      <Route path='/login' element ={<Login/>}></Route>
       <Route path='/cargaPlan' element ={<CargaPlan/>}></Route>
       </Routes>
     </>
 
   )
 }
-export default App
+export default AppTest

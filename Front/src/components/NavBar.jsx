@@ -2,13 +2,16 @@ import React, { useEffect, useState } from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { useSearch } from "../Hooks/useSearch";
+import { useCars } from '../Hooks/useCars'
 
 export function NavBar () {
-
   const { search, updateSearch, error} = useSearch()
+  const { cars, getCars } = useCars({ search })
+
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log({search})
+    getCars()
   }
 
   const handleChange = (event) => {
