@@ -5,6 +5,7 @@ import { NavBarTest } from './components/NavBarTest'
 import { HomeTest } from './components/HomeTest'
 import { Login } from './components/Login'
 import { CargaPlan } from './components/QuieroVenderMiPlan'
+import { Adjudicados } from './components/Adjudicados'
 
 function AppTest() {
 
@@ -16,6 +17,7 @@ function AppTest() {
       <Route path='/' element ={<HomeTest/>}></Route>
       <Route path='/login' element ={<Login/>}></Route>
       <Route path='/cargaPlan' element ={<CargaPlan/>}></Route>
+      <Route path='/adjudicados' element ={<Adjudicados/>}></Route>
       </Routes>
     </>
 
