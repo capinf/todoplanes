@@ -13,9 +13,10 @@
 
 .logo {
     display: flex;
-    translate: 45%;
-    transform: translate(0%, -73%);
+    /* translate: 45%; */
+    transform: translate(750%, -72%);
     margin-bottom: -120px;
+    width: 11%;
   }
 
 

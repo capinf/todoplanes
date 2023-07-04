@@ -15,7 +15,9 @@ export function NavBar () {
           <Link to= {'/'} >Inicio</Link>
           <Nav.Link  href="#">Clientes</Nav.Link>
           <Link to = {'/FormAuto'}>Autos</Link>
-          <Nav.Link href="#">Planes</Nav.Link>
+          <Link to = {'/Planes'}>Planes</Link>
+         
+
         </Nav>
       </Navbar.Collapse>
     </Navbar>
