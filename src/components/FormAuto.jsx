@@ -1,93 +1,146 @@
-import React from "react";
-import { useState,useEffect } from "react"
-import {Link} from 'react-router-dom'
+import React from 'react'
 import '../components/formcss.css'
-
+import { useState } from 'react';
 
 
 export function FormAuto () {
+
+  const [formData, setFormData] = useState({
+    carModel: '',
+    price: '',
+    carCondition: '',
+    mileage: '',
+    year: '',
+    location: '',
+    images: [],
+  });
+
+  const handleChange = (e) => {
+    if (e.target.name === 'images') {
+      const images = Array.from(e.target.files);
+      setFormData((prevData) => ({
+        ...prevData,
+        [e.target.name]: images,
+      }));
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        [e.target.name]: e.target.value,
+      }));
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(formData);
+    // Aquí puedes realizar las acciones necesarias con los datos del formulario
+  };
     return (
         <>
+       <form action="">
+  <div className="container" >
+    <div className="row justify-content-center" id="form">
+      <div className="col-md-8">
+        <h1 id="registro">Subir tu Auto</h1>
+        <div className="styled-form" width = "60%">
 
-
-        
-<section className="vh-100" style={{ backgroundColor: "black" }}>
-  <div className="container h-100">
-    <div className="row d-flex justify-content-center align-items-center h-100">
-      <div className="col-lg-12 col-xl-11">
-        <div className="card text-black" style={{ borderRadius: "25px" }}>
-          <div className="card-body p-md-5">
-            <div className="row justify-content-center">
-              <div className="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
-
-                <p className="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4">Registro</p>
-
-                <form className="mx-1 mx-md-4">
-
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-user fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="text" id="form3Example1c" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example1c">Your Name</label>
-                    </div>
-                  </div>
-
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-envelope fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="email" id="form3Example3c" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example3c">Your Email</label>
-                    </div>
-                  </div>
-
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-lock fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4c" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example4c">Password</label>
-                    </div>
-                  </div>
-
-                  <div className="d-flex flex-row align-items-center mb-4">
-                    <i className="fas fa-key fa-lg me-3 fa-fw"></i>
-                    <div className="form-outline flex-fill mb-0">
-                      <input type="password" id="form3Example4cd" className="form-control" />
-                      <label className="form-label" htmlFor="form3Example4cd">Repeat your password</label>
-                    </div>
-                  </div>
-
-
-                  <div className="mb-3">
-  <label htmlFor="formFileMultiple" className="form-label">Upload Images</label>
-  <input className="form-control" type="file" id="formFileMultiple" multiple />
-</div>
-
-                  <div className="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                    <button type="button" className="btn btn-primary btn-lg">Register</button>
-                  </div>
-
-                  
-
-                </form>
-
-              </div>
-              <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
-
-                <img src="https://www2.deloitte.com/content/dam/Deloitte/mx/Images/promo_images/industrias/manufactura/2022/Auto-nuevo-el-deseo-latente-de-los-consumidores-promo.jpg"
-                  className="img-fluid" alt="Sample image" />
-              </div>
-            </div>
-            <footer className="text-center mt-5">
-              <p>TodoPlanes</p>
-            </footer>
+          <div className="form-group">
+            <input
+              required
+              type="text"
+              className="form-control"
+              id="carModel"
+              name="carModel"
+              value={formData.carModel}
+              onChange={handleChange}
+            />
+            <label htmlFor="carModel" className="text">Modelo de Auto</label>
           </div>
+          <div className="form-group">
+            <input
+              required
+              type="text"
+              className="form-control"
+              id="price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+            />
+            <label htmlFor="price" className="text">Precio</label>
+          </div>
+          <div className="form-group">
+            <input
+              required
+              type="text"
+              className="form-control"
+              id="carCondition"
+              name="carCondition"
+              value={formData.carCondition}
+              onChange={handleChange}
+            />
+            <label htmlFor="carCondition" className="text">Condición del Auto</label>
+          </div>
+          <div className="form-group">
+            <input
+              required
+              type="text"
+              className="form-control"
+              id="mileage"
+              name="mileage"
+              value={formData.mileage}
+              onChange={handleChange}
+            />
+            <label htmlFor="mileage" className="text">Kilometraje</label>
+
+
+          </div>
+          <div className="form-group">
+            <input
+              required
+              type="text"
+              className="form-control"
+              id="year"
+              name="year"
+              value={formData.year}
+              onChange={handleChange}
+            />
+            <label htmlFor="year" className="text">Año</label>
+          </div>
+          <div className="form-group">
+            <input
+              required
+              type="text"
+              className="form-control"
+              id="location"
+              name="location"
+              value={formData.location}
+              onChange={handleChange}
+            />
+            <label htmlFor="location" className="text">Localidad</label>
+          </div>
+          <div className="form-group">
+            <label htmlFor="images" className="text">Subir imágenes</label>
+            <input
+              required
+              type="file"
+              className="form-control-file"
+              id="images"
+              name="images"
+              multiple
+              onChange={handleChange}
+            />
+          </div>
+          <button type="submit" className="btn btn-info">Enviar</button>
         </div>
       </div>
+      <div width="500px" height = "400px">
+      <img src="/img/hombrecitos.jpg" id='imagen-form' style={{ position: "relative", zIndex: 1 }}/>
+      </div>
+    
     </div>
+    <footer id="futer">TodoPlanes</footer>
   </div>
-</section>
-
-
+</form>
         </>
     )
 }

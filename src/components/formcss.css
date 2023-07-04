@@ -1,6 +1,8 @@
+
+  @media screen {
     
-  
-  p {
+  #registro  {
+    text-align: center;
     position: relative;
     font-family: sans-serif;
     text-transform: uppercase;
@@ -10,10 +12,36 @@
     background: linear-gradient(90deg, #000, #20D392, #000);
     background-repeat: no-repeat;
     background-size: 80%;
-    animation: animate 3s linear infinite;
+    animation: animate 3.3s linear infinite;
     -webkit-background-clip: text;
     -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    margin-top: 50px;
+    font-weight: bold;
+    font-family:  Verdana, Geneva, Tahoma, sans-serif ;
+    transform: translateX(30.2%);
   }
+
+  #futer {
+    text-align: center;
+    position: relative;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    font-size: 2em;
+    letter-spacing: 4px;
+    overflow: hidden;
+    background: linear-gradient(90deg, #000, #20D392, #000);
+    background-repeat: no-repeat;
+    background-size: 80%;
+    animation: animate 4.05s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-family:  Verdana, Geneva, Tahoma, sans-serif ;
+    
+  }
+
   
   @keyframes animate {
     0% {
@@ -28,7 +56,108 @@
     background-color: #20D392;
     color: white;
   }
+
+
+.text {
+    font-weight: bold;
+}
+
+
+.form-group {
+
+  width: 60%;
+  margin: 0px, 0px, 0px;
+
+}
+
+#form {
+  padding-right: 20%;
+  margin-left: -80px;
   
-  .logo img:hover {
-    filter: brightness(1.2);
+}
+
+
+.styled-form {
+  position: relative;
+  z-index: 2;
+  padding-left: 0%;
+}
+
+
+
+#imagen-form {
+  transform: translate(80%,-120%);
+  display: flex;
+  width:450px ;
+  height: 450px;
+  transform: translate(60%, -130%);
+  margin-bottom: -620px;
+
+}
+
+}
+
+@media (max-width: 412px) {
+  #registro {
+    
+    font-size: 1.5em;
+    margin-top: 30px;
+  }
+
+  #futer {
+    font-size: 1.5em;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .form-group {
+    width: 80%;
+  }
+
+  #form {
+    padding-right: 10%;
+    margin-left: 0;
+  }
+
+  #imagen-form {
+    transform: translate(60%, -120%);
+    width: 250px;
+    height: 250px;
+    margin-bottom: -350px;
+  }
+}
+
+@media (max-width: 412px) {
+  .form-group {
+
+    width: 100%;
+    margin: 0px, 0px, 0px;
+
+  }
+
+  #form {
+    padding-right: 20%;
+    margin-left: -20px;
+
+  }
+
+
+  .styled-form {
+    position: relative;
+    z-index: 2;
+    padding-left: 0%;
+  }
+
+
+
+  #imagen-form {
+    transform: translate(5%,-160%);
+    display: flex;
+    width:500px ;
+    height: 500px;
+    margin-bottom: -620px;
+    opacity: 0.5;
+    /* background-image: url("/public/img/hombrecitos.jpg"); */
+
+  }
   }
