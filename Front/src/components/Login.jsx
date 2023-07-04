@@ -33,44 +33,33 @@ export function Login () {
 <div class="container" id="container">
 	<div class="form-container sign-up-container">
 		<form class="formulario" action="#">
-			<h1 id="titulazo">Create Account</h1>
-			<div class="social-container">
-				<a id="Zelda" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a id="Zelda" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a id="Zelda" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your email for registration</span>
-			<input id="inpunt" type="text" placeholder="Name" />
-			<input id="inpunt" type="email" placeholder="Email" />
-			<input id="inpunt" type="password" placeholder="Password" />
-			<button id="luisbutton">Sign Up</button>
+			<h1 id="titulazo">Crear Cuenta</h1>
+			<input required id="inpunt" type="text" placeholder="Nombre" />
+			<input required id="inpunt" type="email" placeholder="Correo" />
+			<input required id="inpunt" type="password" placeholder="Contraseña" />
+			<input required id="inpunt" type="number" placeholder="Telefono" />
+			<label><input required type="checkbox" id="cbox1" value="first_checkbox"  /> Aceptas <a href="">terminos y condiciones</a> </label><br></br>
+			<button id="luisbutton">Registrarse</button>
 		</form>
 	</div>
 	<div class="form-container sign-in-container">
 		<form class="formulario" action="#">
-			<h1 id="titulazo" >Sign in</h1>
-			<div class="social-container">
-				<a id="Zelda" href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-				<a id="Zelda" href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-				<a id="Zelda" href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-			</div>
-			<span>or use your account</span>
+			<h1 id="titulazo" >Iniciar Sesión</h1>
 			<input id="inpunt" type="email" placeholder="Email" />
 			<input id="inpunt" type="password" placeholder="Password" />
-			<a id="Zelda" href="#">Forgot your password?</a>
-			<button id="luisbutton">Sign In</button>
+			<button id="luisbutton">Iniciar Sesión</button>
 		</form>
 	</div>
 	<div class="overlay-container">
 		<div class="overlay">
 			<div class="overlay-panel overlay-left">
-				<h1 id="titulazo">Welcome Back!</h1>
-				<p id="parrafazo">To keep connected with us please login with your personal info</p>
-				<button class="ghost" id="signIn">Sign In</button>
+				<h1 id="titulazo">Bienvenido!</h1>
+				<p id="parrafazo">Para mantenerte conectado con nosotros por favor ingrese su informacion personal</p>
+				<button class="ghost" id="signIn">Iniciar Sesión</button>
 			</div>
 			<div class="overlay-panel overlay-right">
-				<h1 id="titulazo" >Hello, Friend!</h1>
-				<p id="parrafazo">Enter your personal details and start journey with us</p>
+				<h1 id="titulazo" >Hola, amigo!</h1>
+				<p id="parrafazo">Ingresa tus datos para crear un usuario</p>
 				<button class="ghost" id="signUp">Sign Up</button>
 			</div>
 		</div>

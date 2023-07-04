@@ -12,6 +12,7 @@ export function CargaAutos () {
     mileage: '',
     year: '',
     location: '',
+    telefono: '',
     images: [],
   });
 
@@ -117,6 +118,18 @@ export function CargaAutos () {
               onChange={handleChange}
             />
             <label htmlFor="location" className="text">Localidad</label>
+          </div>
+          <div className="form-group">
+            <input
+              required
+              type="text"
+              className="form-control"
+              id="telefono"
+              name="telefono"
+              value={formData.telefono}
+              onChange={handleChange}
+            />
+            <label htmlFor="location" className="text">Telefono</label>
           </div>
           <div className="form-group">
             <label htmlFor="images" className="text">Subir imágenes</label>

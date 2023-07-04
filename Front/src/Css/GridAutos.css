@@ -23,7 +23,7 @@
 }
 
 .card-list {
-    background: linear-gradient(to bottom right, #ffffff, #e6fde7);
+    background: linear-gradient(to bottom right, #ffffff, #ffffff);
     border-radius: 8px;
     padding: 10px;
     display: flex;
@@ -31,7 +31,6 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    box-shadow: 0 4px 8px rgb(122, 255, 133);
 }
 
 .card-details {
