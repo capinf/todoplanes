@@ -1,0 +1,48 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.barra {
+    width: 100%;
+    background-color: black;
+}
+
+.logo {
+    display: flex;
+    /* translate: 45%; */
+    transform: translate(750%, -72%);
+    margin-bottom: -120px;
+    width: 11%;
+  }
+
+
+main{
+    display: flex;
+    align-content:center;
+    width: 100%;
+}
+
+.cars {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+    gap: 10px;
+}
+
+section {
+    display: flex;
+    width: 100%;
+}
+.car {
+    display: inline-block;
+    margin: 5px;
+}
+p, h3 {
+    margin-bottom: 0;
+}
