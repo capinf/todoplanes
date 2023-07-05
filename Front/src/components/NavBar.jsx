@@ -16,6 +16,7 @@ export function NavBar () {
           <Nav.Link  href="#">Clientes</Nav.Link>
           <Link to = {'/FormAuto'}>Autos</Link>
           <Link to = {'/Planes'}>Planes</Link>
+          <Link to = {'/usuario'}>Usuario</Link>
          
 
         </Nav>

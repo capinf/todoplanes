@@ -92,7 +92,9 @@ export async function getUsuario(){
     }
 }
 
-export async function bajaUsuario(username){
+
+
+export async function bajaUsuario(id){
     
     const token = JSON.parse(localStorage.getItem('token'));
     const requestOptions={
@@ -103,7 +105,7 @@ export async function bajaUsuario(username){
         }
     };
     try{
-        const response = await fetch(`${API_URL}/bajausuario/${username}`, requestOptions)
+        const response = await fetch(`${API_URL}/bajausuario/${id}`, requestOptions)
         const data = await response.json();
         console.log(data)
         return data;
@@ -113,7 +115,7 @@ export async function bajaUsuario(username){
     }
 }
 
-export async function altaUsuario(username){
+export async function altaUsuario(id){
     const token = JSON.parse(localStorage.getItem('token'));
     const requestOptions={
         method: 'PUT',
@@ -123,7 +125,7 @@ export async function altaUsuario(username){
         }
     };
     try{
-        const response = await fetch(`${API_URL}/altausuario/${username}`, requestOptions)
+        const response = await fetch(`${API_URL}/altausuario/${id}`, requestOptions)
         const data = await response.json();
         // console.log(data)
         return data;
@@ -132,3 +134,42 @@ export async function altaUsuario(username){
         alert('No se puede conectar con el servidor')
     }
 }   
+
+/// EDITAR ROL ///
+
+export async function getUsuarioById(id){
+
+    const token = JSON.parse(localStorage.getItem('token'));
+    
+    const  requestOptions = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      };
+    console.log("hola")
+    try{
+        const response = await fetch(`${API_URL}/usuarios/${id}`,requestOptions);
+        const data = await response.json();
+        console.log(data)
+        return data;
+    }catch(error){
+        console.log('Nuestro error', error);
+    }
+}
+
+
+export function UpdateUsuario(id, datos){ 
+ 
+    const requestOptions={
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+           
+
+        },
+        body: JSON.stringify(datos)
+    };
+    fetch(`${API_URL}/edit_usuario/${id}`, requestOptions)
+    
+}

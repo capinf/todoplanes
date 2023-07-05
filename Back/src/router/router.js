@@ -118,11 +118,26 @@ router.put('/resetpassword/:id', (req, res)=>{
 
     
 });
+//// Usuarios ////
+
+router.get('/usuarios', (req, res)=>{
+
+       
+            mysqlConeccion.query('select * from usuarios', (err, registro)=>{
+                if(!err){
+                    res.json(registro);
+                }else{
+                    console.log(err)
+                }
+            })
+   
+    
+});
 
 //// Baja y Alta Usuario /// 
 
 router.put('/bajausuario/:id', (req, res)=>{
-    // asigna a id_usuario el valor que recibe por el parametro 
+    
      let id  = req.params.id;
      let query=`UPDATE usuarios SET estado='B' WHERE id='${id}'`;
      mysqlConeccion.query(query, (err, registros)=>{
@@ -139,7 +154,7 @@ router.put('/bajausuario/:id', (req, res)=>{
 });
 
 router.put('/altausuario/:id', (req, res)=>{
-    // asigna a id_usuario el valor que recibe por el parametro 
+    
      let id  = req.params.id;
      let query=`UPDATE usuarios SET estado='A' WHERE id='${id}'`;
      mysqlConeccion.query(query, (err, registros)=>{
@@ -155,6 +170,22 @@ router.put('/altausuario/:id', (req, res)=>{
     
 });
 
+//// edit ////
+
+router.put('/edit_usuario/:id',(req, res)=>{
+  
+            let id = req.params.id;
+            const { rol} =req.body  
+            console.log(req.body)
+            mysqlConeccion.query(`UPDATE usuarios SET rol='${rol}' WHERE id='${id}'`, (err, registros)=>{
+                if(!err){
+                    res.send('El Id que editamos es : '+id+' ');
+                }else{
+                    console.log(err)
+                }
+            })
+   
+});
 
 
 module.exports = router;
