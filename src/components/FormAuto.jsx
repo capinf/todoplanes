@@ -1,48 +1,52 @@
 import React from 'react'
 import '../components/formcss.css'
 import { useState } from 'react';
+// import * as API from '../Servicios/Servicios'
 
 
 export function FormAuto () {
 
-  const [formData, setFormData] = useState({
-    carModel: '',
-    price: '',
-    carCondition: '',
-    mileage: '',
-    year: '',
-    location: '',
-    images: [],
-  });
+  const [modeloAuto, setModeloAuto] = useState('');
+  const [precio, setPrecio] = useState('');
+  const [condicionAuto, setCondicionAuto] = useState('');
+  const [kilometraje, setKilometraje] = useState('');
+  const [anio, setAnio] = useState('');
+  const [localidad, setLocalidad] = useState('');
+  const [imagenes, setImagenes] = useState('');
+  const [mensajeSuccess, setmensajeSuccess] = useState('');
+  const [mensajeError, setmensajeError] = useState('');
 
-  const handleChange = (e) => {
-    if (e.target.name === 'images') {
-      const images = Array.from(e.target.files);
-      setFormData((prevData) => ({
-        ...prevData,
-        [e.target.name]: images,
-      }));
-    } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [e.target.name]: e.target.value,
-      }));
+
+  const registroForm  = async (event)=>{
+    event.preventDefault();
+    const user = await API.FormAuto({modeloAuto, precio, condicionAuto, kilometraje,anio,localidad,imagenes})
+    if(user.status){
+        setmensajeSuccess(user.mensaje)
+        setTimeout(()=>{
+            setmensajeSuccess('');
+        }, 4000)
+        window.location.href=('/')
+        window.alert("Elauto se publicó correctamente")
+    } else{
+        setmensajeError(user.mensaje)
+        setTimeout(()=>{
+            setmensajeError('');
+        }, 3000)
+        window.alert(user.mensaje)
     }
-  };
+  }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // Aquí puedes realizar las acciones necesarias con los datos del formulario
-  };
     return (
         <>
-       <form action="">
-  <div className="container" >
-    <div className="row justify-content-center" id="form">
+
+{ mensajeSuccess && (<Alert color='success'>{mensajeSuccess}</Alert>) }
+      
+      <form onSubmit={registroForm}>  
+      <div className="container" >
+      <div className="row justify-content-center" id="form">
       <div className="col-md-8">
-        <h1 id="registro">Subir tu Auto</h1>
-        <div className="styled-form" width = "60%">
+      <h1 id="registro">Subir tu Auto</h1>
+      <div className="styled-form" width = "60%">
 
           <div className="form-group">
             <input
@@ -51,11 +55,12 @@ export function FormAuto () {
               className="form-control"
               id="carModel"
               name="carModel"
-              value={formData.carModel}
-              onChange={handleChange}
+              value={modeloAuto}
+              onChange={(event)=>setModeloAuto(event.target.value)}
             />
             <label htmlFor="carModel" className="text">Modelo de Auto</label>
           </div>
+
           <div className="form-group">
             <input
               required
@@ -63,11 +68,12 @@ export function FormAuto () {
               className="form-control"
               id="price"
               name="price"
-              value={formData.price}
-              onChange={handleChange}
+              value={precio}
+              onChange={(event)=>setPrecio(event.target.value)}
             />
             <label htmlFor="price" className="text">Precio</label>
           </div>
+
           <div className="form-group">
             <input
               required
@@ -75,8 +81,8 @@ export function FormAuto () {
               className="form-control"
               id="carCondition"
               name="carCondition"
-              value={formData.carCondition}
-              onChange={handleChange}
+              value={condicionAuto}
+              onChange={(event)=>setCondicionAuto(event.target.value)}
             />
             <label htmlFor="carCondition" className="text">Condición del Auto</label>
           </div>
@@ -87,8 +93,8 @@ export function FormAuto () {
               className="form-control"
               id="mileage"
               name="mileage"
-              value={formData.mileage}
-              onChange={handleChange}
+              value={kilometraje}
+              onChange={(event)=>setKilometraje(event.target.value)}
             />
             <label htmlFor="mileage" className="text">Kilometraje</label>
 
@@ -101,8 +107,8 @@ export function FormAuto () {
               className="form-control"
               id="year"
               name="year"
-              value={formData.year}
-              onChange={handleChange}
+              value={anio}
+              onChange={(event)=>setAnio(event.target.value)}
             />
             <label htmlFor="year" className="text">Año</label>
           </div>
@@ -113,8 +119,8 @@ export function FormAuto () {
               className="form-control"
               id="location"
               name="location"
-              value={formData.location}
-              onChange={handleChange}
+              value={localidad}
+              onChange={(event)=>setLocalidad(event.target.value)}
             />
             <label htmlFor="location" className="text">Localidad</label>
           </div>
@@ -127,9 +133,11 @@ export function FormAuto () {
               id="images"
               name="images"
               multiple
-              onChange={handleChange}
+              value = {imagenes}
+              onChange={(event)=>setImagenes(event.target.value)}
             />
           </div>
+
           <button type="submit" className="btn btn-info">Enviar</button>
         </div>
       </div>

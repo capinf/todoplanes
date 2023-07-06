@@ -8,7 +8,8 @@ import './formcss.css'
 export function NavBar () {
     return (
         <>
-    <Navbar className="barra" variant="dark" expand="lg">
+      <Navbar className="barra" variant="dark" expand="lg">
+      <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-auto" />
       <Navbar.Toggle aria-controls="basic-navbar-nav" className="mr-auto" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
@@ -16,15 +17,15 @@ export function NavBar () {
           <Nav.Link  href="#">Clientes</Nav.Link>
           <Link to = {'/FormAuto'}>Autos</Link>
           <Link to = {'/Planes'}>Planes</Link>
-         
 
-        </Nav>
+          </Nav>
       </Navbar.Collapse>
-    </Navbar>
-        <div className="logo">
+      </Navbar>
+          <div className="logo">
         <img src="/img/logo.png" width="120px" height="120px" alt="logo" />
         </div>
         
+      
         </>
     )
 }
