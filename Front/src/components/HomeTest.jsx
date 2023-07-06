@@ -46,6 +46,11 @@ export function HomeTest() {
     <main>
       <Cars cars={cars} />
     </main>
+    <footer className='footerHome'>
+    <button className='whatsapplogoHome'>
+      <a href="#"><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></a>
+      </button>
+    </footer>
     </>
     )
 }

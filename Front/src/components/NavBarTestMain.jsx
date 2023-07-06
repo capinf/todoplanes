@@ -4,6 +4,14 @@ import Nav from "react-bootstrap/Nav";
 import { Link } from "react-router-dom";
 
 export function NavBarTestMain () {
+  const [sesion, setSesion] = useState('')
+
+    const Logout = async(event)=>{
+
+            setSesion('')
+            window.localStorage.removeItem('token');
+            window.location.reload(true);
+        }
 
     return (
         <>
@@ -16,12 +24,13 @@ export function NavBarTestMain () {
           <Nav.Link style={{color:"white"}} href="#">Adjudicados</Nav.Link>
           <Nav.Link style={{color:"aquamarine"}} href="#">¡Quiero vender mi plan!</Nav.Link>
           <Nav.Link style={{color:"white"}} href="/cargaAutos">¡Subí tu auto!</Nav.Link>
+          <Link to = {'/usuario'}>Usuarios</Link>
         </Nav>
       </Navbar.Collapse>
             <div className="logo">
             <img src="/img/logo.png" width="120px" height="120px" alt="logo" />
             </div>
-            <Nav.Link className="login" href="/login"><img src="/img/iniciarsesion1.png" width="60px" height="60px" alt="user" /></Nav.Link>
+            <Nav.Link onClick={Logout} className="login" href="#"><img src="/img/logout.png" width="60px" height="50px" alt="user" /></Nav.Link>
     </Navbar>
 
         </>
