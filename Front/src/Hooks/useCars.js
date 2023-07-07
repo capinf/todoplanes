@@ -17,8 +17,11 @@ export function useCars ({ search }) {
     }))
 
     const getCars = () => {
-        if (search) {
+        if (search) { 
+            //HACER ACÄ EL LLAMADO AL ENDPOINT -> SERVICIOS.JS -> BACKEND -> GET CONSULTA
+            // setResponseCars(getAutosAPI())
             setResponseCars(withResults)
+
         }else{
             setResponseCars(withoutresults)
         }

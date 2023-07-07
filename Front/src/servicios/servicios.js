@@ -173,3 +173,20 @@ export function UpdateUsuario(id, datos){
     fetch(`${API_URL}/edit_usuario/${id}`, requestOptions)
     
 }
+
+//TRAER DATOS DE TABLA AUTOS//
+// ENSAMBLAR SEGUN CORRESPONDA
+// export async function getAutosAPI(){
+//     try{
+
+//         const response = await fetch(`${API_URL}/autos`);
+//         const data = await response.json();
+//         return data;
+    
+//     }catch(error){
+//         console.log('Nuestro error es ', error);
+//     }
+// }
+//          ^^^^^^          //
+//          ||||||
+//TRAER DATOS DE TABLA AUTOS//
