@@ -12,7 +12,7 @@ mysqlConeccion.connect(function(err){
         console.log('mi error es', err);
         return;
     }else{
-        console.log('Mi coneccion se realizo correctamente');
+        console.log('Mi conexion se realizo correctamente');
     }
 })
 

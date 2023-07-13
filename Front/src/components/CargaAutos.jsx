@@ -1,39 +1,60 @@
 import React from 'react'
 import '../Css/formcss.css'
 import { useState } from 'react';
+import  {cargarFormulario}  from '../servicios/servicios';
 
 
 export function CargaAutos () {
 
   const [formData, setFormData] = useState({
-    carModel: '',
-    price: '',
-    carCondition: '',
-    mileage: '',
-    year: '',
-    location: '',
+    nombrePlan: '',
+    precio: '',
+    cantidadCuotas: '',
+    adjudicado: '',
+    anioInicio: '',
+    localidad: '',
     telefono: '',
-    images: [],
+    imgPath: null
   });
 
+
   const handleChange = (e) => {
-    if (e.target.name === 'images') {
-      const images = Array.from(e.target.files);
-      setFormData((prevData) => ({
-        ...prevData,
-        [e.target.name]: images,
-      }));
+    if (e.target.name === 'imgPath') {
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.files[0]
+      });
     } else {
-      setFormData((prevData) => ({
-        ...prevData,
-        [e.target.name]: e.target.value,
-      }));
+      setFormData({
+        ...formData,
+        [e.target.name]: e.target.value
+      });
     }
+    console.log('handleChange consolelog ',formData);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    console.log('handlesubmit consolelog ',formData);
+    try {
+      const response = await cargarFormulario(formData);
+      console.log('Datos enviados al backend:', response);
+
+      // Reiniciar los valores de los campos después de enviar
+      setFormData({
+        nombrePlan: '',
+        precio: '',
+        cantidadCuotas: '',
+        adjudicado: '',
+        anioInicio: '',
+        localidad: '',
+        telefono: '',
+        imgPath: null
+      });
+    } catch (error) {
+      console.error('Error al enviar datos al backend:', error);
+    }
+    window.location.reload(true);
     // Aquí puedes realizar las acciones necesarias con los datos del formulario
   };
     return (
@@ -42,7 +63,7 @@ export function CargaAutos () {
   <div className="container" >
     <div className="row justify-content-center" id="form">
       <div className="col-md-8">
-        <h1 id="registro">Subir tu Auto</h1>
+        <h1 id="registro">Subí tu Plan</h1>
         <div className="styled-form" width = "60%">
 
           <div className="form-group">
@@ -50,48 +71,48 @@ export function CargaAutos () {
               required
               type="text"
               className="form-control"
-              id="carModel"
-              name="carModel"
-              value={formData.carModel}
+              id="nombrePlan"
+              name="nombrePlan"
+              value={formData.nombrePlan}
               onChange={handleChange}
             />
-            <label htmlFor="carModel" className="text">Modelo de Auto</label>
+            <label htmlFor="nombrePlan" className="text">Nombre del Plan</label>
           </div>
           <div className="form-group">
             <input
               required
               type="text"
               className="form-control"
-              id="price"
-              name="price"
-              value={formData.price}
+              id="precio"
+              name="precio"
+              value={formData.precio}
               onChange={handleChange}
             />
-            <label htmlFor="price" className="text">Precio</label>
+            <label htmlFor="precio" className="text">Precio</label>
+          </div>
+          <div className="form-group">
+            <input
+              required
+              type="number"
+              className="form-control"
+              id="cantidadCuotas"
+              name="cantidadCuotas"
+              value={formData.cantidadCuotas}
+              onChange={handleChange}
+            />
+            <label htmlFor="carCondition" className="text">Cantidad de Cuotas</label>
           </div>
           <div className="form-group">
             <input
               required
               type="text"
               className="form-control"
-              id="carCondition"
-              name="carCondition"
-              value={formData.carCondition}
+              id="adjudicado"
+              name="adjudicado"
+              value={formData.adjudicado}
               onChange={handleChange}
             />
-            <label htmlFor="carCondition" className="text">Condición del Auto</label>
-          </div>
-          <div className="form-group">
-            <input
-              required
-              type="text"
-              className="form-control"
-              id="mileage"
-              name="mileage"
-              value={formData.mileage}
-              onChange={handleChange}
-            />
-            <label htmlFor="mileage" className="text">Kilometraje</label>
+            <label htmlFor="adjudicado" className="text">¿Adjudicado?</label>
 
 
           </div>
@@ -100,24 +121,24 @@ export function CargaAutos () {
               required
               type="text"
               className="form-control"
-              id="year"
-              name="year"
-              value={formData.year}
+              id="anioInicio"
+              name="anioInicio"
+              value={formData.anioInicio}
               onChange={handleChange}
             />
-            <label htmlFor="year" className="text">Año</label>
+            <label htmlFor="anioInicio" className="text">Año de Inicio</label>
           </div>
           <div className="form-group">
             <input
               required
               type="text"
               className="form-control"
-              id="location"
-              name="location"
-              value={formData.location}
+              id="localidad"
+              name="localidad"
+              value={formData.localidad}
               onChange={handleChange}
             />
-            <label htmlFor="location" className="text">Localidad</label>
+            <label htmlFor="localidad" className="text">Localidad</label>
           </div>
           <div className="form-group">
             <input
@@ -129,21 +150,22 @@ export function CargaAutos () {
               value={formData.telefono}
               onChange={handleChange}
             />
-            <label htmlFor="location" className="text">Telefono</label>
+            <label htmlFor="telefono" className="text">Telefono</label>
           </div>
           <div className="form-group">
-            <label htmlFor="images" className="text">Subir imágenes</label>
+            <label htmlFor="imgPath" className="text">Subir imágenes</label>
             <input
               required
               type="file"
               className="form-control-file"
-              id="images"
-              name="images"
+              id="imgPath"
+              name="imgPath"
+              accept="image/*"
               multiple
               onChange={handleChange}
             />
           </div>
-          <button type="submit" className="btn btn-info">Enviar</button>
+          <button type="submit" onClick={handleSubmit} className="btn btn-info">Enviar</button>
         </div>
       </div>
       <div width="500px" height = "400px">

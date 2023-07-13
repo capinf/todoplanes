@@ -1,11 +1,40 @@
 const express= require('express');
 const router = express();
+const multer = require('multer');
+const bodyParser = require('body-parser');
+const app = express();
+const path = require('path')
+const fs = require('fs')
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 // libreria que utilizaremos para la encriptacion de los password
 const bcrypt= require('bcrypt');
 
 //////archivo de coneccion
 const mysqlConeccion = require('../database/database');
 //////fin archivo de coneccion
+
+////////////////////////////////
+// Configuración de multer/////
+//////////////////////////////
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads');
+      },
+      filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+      }
+  });
+  
+  const upload = multer({ storage }).single('imgPath');
+
+////////////////////////////////
+// Configuración de multer/////
+//////////////////////////////
+
 
 ////////////login de usuarios //////////////
 router.post('/login', (req, res)=>{
@@ -175,7 +204,7 @@ router.put('/altausuario/:id', (req, res)=>{
 router.put('/edit_usuario/:id',(req, res)=>{
   
             let id = req.params.id;
-            const { rol} =req.body  
+            const { rol } =req.body  
             console.log(req.body)
             mysqlConeccion.query(`UPDATE usuarios SET rol='${rol}' WHERE id='${id}'`, (err, registros)=>{
                 if(!err){
@@ -192,16 +221,21 @@ router.put('/edit_usuario/:id',(req, res)=>{
     //INSERTAR DATOS DEL FORMULARIO DE PLANES//
     /////////////////////////////////////////
 
-router.post('/cargarformulario', (req, res)=>{
-    const { dni, nombre, apellido, domicilio, telefono, texto, abogado_vinculado} = req.body
-     console.log(req.body);
-            let query=`INSERT INTO consultas (dni, nombre, apellido, domicilio, telefono, texto, abogado_vinculado, fecha) 
-            VALUES ('${dni}', '${nombre}', '${apellido}', '${domicilio}', '${telefono}', '${texto}', '${abogado_vinculado}', NOW())`;
+router.post('/cargarformulario', upload, (req, res)=>{
+
+    console.log(req.body);
+    console.log(req.file)
+    const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono } = req.body
+    const imgPath = req.file.path
+    console.log('el img path es ', imgPath)
+    
+            let query=`INSERT INTO formulario (nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath) 
+            VALUES ('${nombrePlan}', '${precio}', '${cantidadCuotas}', '${adjudicado}', '${anioInicio}', '${localidad}', '${telefono}', '${imgPath}')`;
             mysqlConeccion.query(query, (err, registros)=>{
                 if(!err){
                     res.json({
                         status: true,
-                        mensaje:"La consulta se dio de alta correctamente"
+                        mensaje:"La carga de archivos fue satisfactoria"
                     });
                 }else{
                     console.log(err)
@@ -209,6 +243,31 @@ router.post('/cargarformulario', (req, res)=>{
             })
       
 });
+
+// router.post('/cargarformulario', upload.single('imagen'), (req, res) => {
+//     const { nombrePlan, precio, cantidadCuotas, adjudicado, añoInicio, localidad, telefono, form_user } = req.body;
+//     const imgPath = req.file.path;
+  
+//     const query = `INSERT INTO formulario (nombrePlan, precio, cantidadCuotas, adjudicado, añoInicio, localidad, telefono, form_user, imgPath) 
+//                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
+//     const values = [nombrePlan, precio, cantidadCuotas, adjudicado, añoInicio, localidad, telefono, form_user, imgPath];
+  
+//     mysqlConeccion.query(query, values, (err, registros) => {
+//       if (err) {
+//         console.error(err);
+//         res.status(500).json({
+//           status: false,
+//           mensaje: "Hubo un error al guardar los datos"
+//         });
+//       } else {
+//         res.json({
+//           status: true,
+//           mensaje: "La carga de archivos fue satisfactoria"
+//         });
+//       }
+//     });
+//   });
+  
 //
     /////////////////////////////////////////
     //INSERTAR DATOS DEL FORMULARIO DE PLANES//

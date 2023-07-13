@@ -1,10 +1,14 @@
 const express= require('express');
 const app = express();
+const cors = require('cors')
 app.use(express.json());
+app.use(cors())
+const multer = require('multer');
+
 
 const morgan =require('morgan');
 //configuraciones
-app.set('puerto' , process.env.PORT || 3500);
+app.set('puerto' , process.env.PORT || 3000);
 // middlewares
 app.use(morgan('dev'));
 app.use(function (req, res, next) {
@@ -25,6 +29,18 @@ app.use(function (req, res, next) {
     // Pass to next layer of middleware
     next();
 });
+
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, '../uploads/');
+      },
+      filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+      }
+  });
+  
+  const upload = multer({ storage }).single('imgPath');
+
 //  rutas para mi aplicacion
 app.use(require('./router/router'))
 // inicia el servidor NODE

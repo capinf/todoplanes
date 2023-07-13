@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3300'
+const API_URL = 'http://localhost:3000'
 
 ////////LOGIN//////////////
 
@@ -174,9 +174,9 @@ export function UpdateUsuario(id, datos){
     
 }
 
-//TRAER DATOS DE TABLA AUTOS//
+//TRAER DATOS DE TABLA PLANES//
 // ENSAMBLAR SEGUN CORRESPONDA
-// export async function getAutosAPI(){
+// export async function getPlanesAPI(){
 //     try{
 
 //         const response = await fetch(`${API_URL}/autos`);
@@ -189,4 +189,59 @@ export function UpdateUsuario(id, datos){
 // }
 //          ^^^^^^          //
 //          ||||||
-//TRAER DATOS DE TABLA AUTOS//
+//TRAER DATOS DE TABLA PLANES//
+
+// export async function cargarFormulario(formData){
+//     const requestOptions={
+//         method: 'POST',
+//         headers: {
+//             'Content-Type': 'application/json',
+//         },
+//         body: JSON.stringify(formData)
+//     };
+//     try{
+//     const response = await fetch(`${API_URL}/cargarformulario`, requestOptions)
+//     const data = await response.json();
+//     console.log(data)
+//     return data;
+//     } catch(e){
+//         // console.log('no funciona')
+//     }
+// }
+
+//////////////////////////////////////////////
+////// CARGA DE DATOS FORM PLANES////////////
+////////////////////////////////////////////
+export async function cargarFormulario(formData) {
+    const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath } = formData;
+
+    const form = new FormData();
+    form.append('nombrePlan', nombrePlan);
+    form.append('precio', precio);
+    form.append('cantidadCuotas', cantidadCuotas);
+    form.append('adjudicado', adjudicado);
+    form.append('anioInicio', anioInicio);
+    form.append('localidad', localidad);
+    form.append('telefono', telefono);
+    form.append('imgPath', imgPath);
+    console.log('serviciosjs despues de appends, form',form);
+
+    const requestOptions={
+        method: 'POST',
+        body: form
+    };
+
+  
+    try {
+      const response = await fetch(`${API_URL}/cargarformulario`, requestOptions);
+      const data = await response.json();
+      console.log(data);
+      return data;
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+    }
+  }
+
+//////////////////////////////////////////////
+////// CARGA DE DATOS FORM PLANES////////////
+////////////////////////////////////////////
