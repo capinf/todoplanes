@@ -91,7 +91,7 @@ router.post('/login', (req, res)=>{
 //// registro ////
 
 router.post('/registro', async(req, res)=>{
-    const {username, password, email, apellido_nombre} =req.body
+    const {username, password, email, apellido_nombre, telefono} =req.body
     let hash = bcrypt.hashSync(password,10);
 
     let queryCheck=`SELECT * FROM usuarios WHERE username='${username}'`;
@@ -273,5 +273,65 @@ router.post('/cargarformulario', upload, (req, res)=>{
     //INSERTAR DATOS DEL FORMULARIO DE PLANES//
     /////////////////////////////////////////
 
+
+    /////////////////////////////////////////
+         //TRAER ROL DE USUARIO AL FRONT//
+    /////////////////////////////////////////
+
+    // function obtenerRolUsuario(req, res) {
+    //     const userRol = req.user.rol;
+      
+    //     // Consulta los datos del usuario en la base de datos
+    //     connection.query(
+    //       'SELECT * FROM usuarios WHERE rol = ?',
+    //       [userRol],
+    //       (error, results) => {
+    //         if (error) {
+    //           console.error('Error al obtener el rol del usuario:', error);
+    //           return res.status(500).json({ message: 'Error en el servidor' });
+    //         }
+      
+    //         // Si se encontraron resultados, devuelve los datos del usuario
+    //         if (results.length > 0) {
+    //           const rol = results[0];
+    //           return res.json(rol);
+    //         }
+      
+    //         // Si no se encontraron resultados, devuelve un error o un mensaje indicando que no se encontró el usuario
+    //         return res.status(404).json({ message: 'Usuario no encontrado' });
+    //       }
+    //     );
+    //   }
+      
+    //   // Ruta para obtener los datos del usuario logueado
+    //   router.get('/rolUsuario', obtenerRolUsuario);
+
+    /////////////////////////////////////////
+         //TRAER ROL DE USUARIO AL FRONT//
+    /////////////////////////////////////////
+
+
+    /////////////////////////////////////////
+         //VERIFICAR TOKEN//
+    /////////////////////////////////////////
+    // function verificarToken(req, res, next){
+    //     const BearerHeader= req.headers['authorization']
+    //     if(typeof BearerHeader!=='undefined'){
+    //         const bearerToken= BearerHeader.split(" ")[1]
+    //         req.token=bearerToken;
+    //         next();
+    //     }else{
+    //          res.send('Para consultar las apis debe estar autenticado.Gracias');
+    //         // console.log('Ocurrio un error')
+    //     }
+    // }
+    
+    // function esNumero(parametro) {
+    //     if(!isNaN(parseInt(parametro))){
+    //         return false
+    //     } else {
+    //         return true
+    //     }
+    // }
 
 module.exports = router;

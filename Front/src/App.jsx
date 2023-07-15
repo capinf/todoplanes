@@ -13,35 +13,34 @@ import { useState, useEffect } from 'react'
 function App() {
 
   const [sesion, setSesion] = useState('');
+  // const [user, setUser] = useState([])
         useEffect(()=>{
 
           const sesionLogeada = JSON.parse(localStorage.getItem('token'))
           if(sesionLogeada){
             setSesion(sesionLogeada)
             console.log('sesion logeada', sesionLogeada)
-          }
-
-          
+          }  
         },[])
 
+        // useEffect(()=>{
+        //   API.getUsuario().then(setUser)
+        //   console.log(user.map((users)))
+        // },[])
+
+        
   return (
     <>
-       {/* {
-
-              !sesion?
-              <>
-              <div><NavBar/></div>
-              </>
-              :
-              <>
-              rol==2 ?
-              <div><NavBarTest/></div>
-              </>
-              rol==3 ?
-              <div><NavBarTestMain/></div>
-              
-
-              } */}
+        {/* {user.rol === "admin" ? (
+          <>
+          <div><NavBarTestMain/></div>
+          </>
+        ) : !sesion ? (
+          <div><NavBar/></div>
+        ) : (
+          <div><NavBarTest/></div>
+        )} */}
+            
       <NavBarTest/>
       <Routes>
       <Route path="/cargaAutos" element ={<CargaAutos/>}></Route>
