@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // libreria que utilizaremos para la encriptacion de los password
 const bcrypt= require('bcrypt');
+const jwt= require('jsonwebtoken');
 
 //////archivo de coneccion
 const mysqlConeccion = require('../database/database');
@@ -45,7 +46,7 @@ router.post('/login', (req, res)=>{
                 if(rows.length!=0){
                     const bcryptPassword = bcrypt.compareSync(password, rows[0].password);
                     if(bcryptPassword){
-                        jwt.sign({rows},  (err, token)=>{
+                        jwt.sign({rows}, 'siliconKey', {expiresIn:'1h'}, (err, token)=>{
                        res.json(
                         {
                             status: true,
