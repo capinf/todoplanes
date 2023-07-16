@@ -21,12 +21,15 @@ export function Login () {
 		if(usuario.status){
 			console.log('se logeo correctamente')
 			window.localStorage.setItem('saveUsuario', JSON.stringify(usuario));
-			window.localStorage.setItem('saveRol', JSON.stringify(usuario.rol));
+			window.localStorage.setItem('saveRol', JSON.stringify(rol));
 			window.localStorage.setItem('token', JSON.stringify(usuario.token));
+			console.log('aca tengo el token:', (window.localStorage.getItem('token')))
+			console.log('aca tengo el rol:', (window.localStorage.getItem('saveRol')))
 			setSesion(sesion)
 			setUser('')
 			setPassword('')
-			window.location.reload(true);
+			//console.log(window.localStorage.getItem('aca tengo el token: ', 'token'))
+			//window.location.reload(true);
 		}else{
 			setMensajeError(usuario.mensaje)
 			setTimeout(()=>{

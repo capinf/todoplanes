@@ -41,7 +41,7 @@ const storage = multer.diskStorage({
 router.post('/login', (req, res)=>{
     const {username, password} =req.body
     if(username!=undefined && password!=undefined){
-        mysqlConeccion.query('select u.username,  u.password,  u.email, u.apellido_nombre from usuarios u where u.estado="A" AND username=?',[username], (err, rows)=>{
+        mysqlConeccion.query('select u.username,  u.password,  u.email, u.apellido_nombre, u.rol from usuarios u where u.estado="A" AND username=?',[username], (err, rows)=>{
             if(!err){
                 if(rows.length!=0){
                     const bcryptPassword = bcrypt.compareSync(password, rows[0].password);
