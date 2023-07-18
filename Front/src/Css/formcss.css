@@ -66,10 +66,8 @@
 
 
 .form-group {
-
   width: 60%;
   margin: 0px, 0px, 0px;
-
 }
 
 #form {
@@ -97,8 +95,14 @@
 
 }
 
-.container {
+.formauto {
+  display: relative;
+  height: 100%;
+}
 
+.container {
+  display: absolute;
+  height: 900px;
 }
 
 }

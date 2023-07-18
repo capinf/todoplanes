@@ -222,95 +222,55 @@ router.put('/edit_usuario/:id',(req, res)=>{
     //INSERTAR DATOS DEL FORMULARIO DE PLANES//
     /////////////////////////////////////////
 
-router.post('/cargarformulario', upload, (req, res)=>{
+    router.post('/cargarformulario', upload, (req, res)=>{
 
-    console.log(req.body);
-    console.log(req.file)
-    const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono } = req.body
-    const imgPath = req.file.path
-    console.log('el img path es ', imgPath)
+        console.log('console log en router js req body: ', req.body);
+        console.log('console log en router js req body: ', req.file)
+        const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, rolform } = req.body
+        const imgPath = req.file ? req.file.path : '';
+        console.log('el img path es ', imgPath)
     
-            let query=`INSERT INTO formulario (nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath) 
-            VALUES ('${nombrePlan}', '${precio}', '${cantidadCuotas}', '${adjudicado}', '${anioInicio}', '${localidad}', '${telefono}', '${imgPath}')`;
-            mysqlConeccion.query(query, (err, registros)=>{
-                if(!err){
-                    res.json({
-                        status: true,
-                        mensaje:"La carga de archivos fue satisfactoria"
-                    });
-                }else{
-                    console.log(err)
-                }
-            })
-      
-});
+                let query=`INSERT INTO formulario (nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath, rolform) 
+                VALUES ('${nombrePlan}', '${precio}', '${cantidadCuotas}', '${adjudicado}', '${anioInicio}', '${localidad}', '${telefono}', '${imgPath}', '${rolform}')`;
+                mysqlConeccion.query(query, (err, registros)=>{
+                    if(!err){
+                        res.json({
+                            status: true,
+                            mensaje:"La carga de archivos fue satisfactoria"
+                        });
+                    }else{
+                        console.log(err)
+                    }
+                })
+    
+    });
 
-// router.post('/cargarformulario', upload.single('imagen'), (req, res) => {
-//     const { nombrePlan, precio, cantidadCuotas, adjudicado, añoInicio, localidad, telefono, form_user } = req.body;
-//     const imgPath = req.file.path;
-  
-//     const query = `INSERT INTO formulario (nombrePlan, precio, cantidadCuotas, adjudicado, añoInicio, localidad, telefono, form_user, imgPath) 
-//                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`;
-//     const values = [nombrePlan, precio, cantidadCuotas, adjudicado, añoInicio, localidad, telefono, form_user, imgPath];
-  
-//     mysqlConeccion.query(query, values, (err, registros) => {
-//       if (err) {
-//         console.error(err);
-//         res.status(500).json({
-//           status: false,
-//           mensaje: "Hubo un error al guardar los datos"
-//         });
-//       } else {
-//         res.json({
-//           status: true,
-//           mensaje: "La carga de archivos fue satisfactoria"
-//         });
-//       }
-//     });
-//   });
-  
-//
     /////////////////////////////////////////
     //INSERTAR DATOS DEL FORMULARIO DE PLANES//
     /////////////////////////////////////////
 
 
     /////////////////////////////////////////
-         //TRAER ROL DE USUARIO AL FRONT//
+    //GET DATOS TABLA FORMULARIOS DE PLANES//
     /////////////////////////////////////////
 
-    // function obtenerRolUsuario(req, res) {
-    //     const userRol = req.user.rol;
-      
-    //     // Consulta los datos del usuario en la base de datos
-    //     connection.query(
-    //       'SELECT * FROM usuarios WHERE rol = ?',
-    //       [userRol],
-    //       (error, results) => {
-    //         if (error) {
-    //           console.error('Error al obtener el rol del usuario:', error);
-    //           return res.status(500).json({ message: 'Error en el servidor' });
-    //         }
-      
-    //         // Si se encontraron resultados, devuelve los datos del usuario
-    //         if (results.length > 0) {
-    //           const rol = results[0];
-    //           return res.json(rol);
-    //         }
-      
-    //         // Si no se encontraron resultados, devuelve un error o un mensaje indicando que no se encontró el usuario
-    //         return res.status(404).json({ message: 'Usuario no encontrado' });
-    //       }
-    //     );
-    //   }
-      
-    //   // Ruta para obtener los datos del usuario logueado
-    //   router.get('/rolUsuario', obtenerRolUsuario);
+    router.get('/autos', (req, res)=>{
+
+       
+        mysqlConeccion.query('select * from formulario', (err, registro)=>{
+            if(!err){
+                res.json(registro);
+            }else{
+                console.log(err)
+            }
+        })
+
+
+});
 
     /////////////////////////////////////////
-         //TRAER ROL DE USUARIO AL FRONT//
+    //GET DATOS TABLA FORMULARIOS DE PLANES//
     /////////////////////////////////////////
-
 
     /////////////////////////////////////////
          //VERIFICAR TOKEN//

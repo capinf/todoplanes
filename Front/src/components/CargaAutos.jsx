@@ -6,6 +6,8 @@ import  {cargarFormulario}  from '../servicios/servicios';
 
 export function CargaAutos () {
 
+  const rolform = JSON.parse(localStorage.getItem('saveRol'))
+
   const [formData, setFormData] = useState({
     nombrePlan: '',
     precio: '',
@@ -14,7 +16,8 @@ export function CargaAutos () {
     anioInicio: '',
     localidad: '',
     telefono: '',
-    imgPath: null
+    imgPath: null,
+    rolform: rolform
   });
 
 
@@ -49,7 +52,8 @@ export function CargaAutos () {
         anioInicio: '',
         localidad: '',
         telefono: '',
-        imgPath: null
+        imgPath: null,
+        rolform: ''
       });
     } catch (error) {
       console.error('Error al enviar datos al backend:', error);

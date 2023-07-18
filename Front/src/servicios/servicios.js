@@ -176,17 +176,17 @@ export function UpdateUsuario(id, datos){
 
 //TRAER DATOS DE TABLA PLANES//
 // ENSAMBLAR SEGUN CORRESPONDA
-// export async function getPlanesAPI(){
-//     try{
+export async function getPlanesAPI(){
+    try{
 
-//         const response = await fetch(`${API_URL}/autos`);
-//         const data = await response.json();
-//         return data;
+        const response = await fetch(`${API_URL}/autos`);
+        const data = await response.json();
+        return data;
     
-//     }catch(error){
-//         console.log('Nuestro error es ', error);
-//     }
-// }
+    }catch(error){
+        console.log('Nuestro error es ', error);
+    }
+}
 //          ^^^^^^          //
 //          ||||||
 //TRAER DATOS DE TABLA PLANES//
@@ -213,7 +213,7 @@ export function UpdateUsuario(id, datos){
 ////// CARGA DE DATOS FORM PLANES////////////
 ////////////////////////////////////////////
 export async function cargarFormulario(formData) {
-    const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath } = formData;
+    const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath, rolform } = formData;
 
     const form = new FormData();
     form.append('nombrePlan', nombrePlan);
@@ -224,6 +224,7 @@ export async function cargarFormulario(formData) {
     form.append('localidad', localidad);
     form.append('telefono', telefono);
     form.append('imgPath', imgPath);
+    form.append('rolform', rolform);
     console.log('serviciosjs despues de appends, form',form);
 
     const requestOptions={

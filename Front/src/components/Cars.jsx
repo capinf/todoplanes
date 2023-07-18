@@ -1,4 +1,15 @@
 import '../Css/GridAutos.css'
+
+// id: car.idFormulario,
+// title: car.nombrePlan,
+// precio: car.precio,
+// cuotas: car.cantidadCuotas,
+// adjudicado: car.adjudicado,
+// anio: car.anioInicio,
+// localidad: car.localidad,
+// telefono: car.telefono,
+// img: car.imgPath
+
 function ListOfCars ({cars}) {
 
     return (
@@ -13,9 +24,12 @@ function ListOfCars ({cars}) {
             <img className='card-image' src={car.img} alt="" />
             <h1 className='title'>{car.title}</h1>
             <div className="card-details">
-            <p className='info'>Kilometraje: {car.kilometraje}</p>
-            <p className='info'>Modelo: {car.año}</p>
-            <p className='info'>{car.descripcion}</p>
+            <p className='info'>Precio: {car.precio}</p>
+            <p className='info'>Cuotas pagadas: {car.cuotas}</p>
+            <p className='info'>¿Adjudicado?: {car.adjudicado}</p>
+            <p className='info'>Localidad: {car.localidad}</p>
+            <p className='info'>Año de Inicio: {car.anio}</p>
+            <p className='info'>{car.telefono}</p>
             <button className='buttoncito'><img src="/img/buttoncito.png" alt="boton de contacto" width="100px" height="100px" /></button>
             <button className='whatsapplogo'><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></button>
             </div>
@@ -31,7 +45,7 @@ function ListOfCars ({cars}) {
 
 function NoCarResponse () {
     return (
-        <p>No se encontraron datos para la busqueda</p>
+        <p>No se encontraron data para la busqueda</p>
     )
 }
 
