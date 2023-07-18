@@ -20,19 +20,14 @@ function App() {
         
         useEffect(()=>{
           const sesionLogeada = JSON.parse(localStorage.getItem('token'))
-          //const userRol = JSON.parse(localStorage.getItem('saveRol'))
+          const userRol = JSON.parse(localStorage.getItem('saveRol'))
           if(sesionLogeada){
             setSesion(sesionLogeada)
-           //setUser(userRol)
+            setUser(userRol)
             console.log('sesion logeada', sesionLogeada)
-            //console.log('Rol ', userRol)
+            console.log('Rol ', userRol)
           }  
         },[])
-
-        // useEffect(()=>{
-        //   API.getUsuario().then(setUser)
-        //   console.log(user.map((users)))
-        // },[])
 
         
   return (
