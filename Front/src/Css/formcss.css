@@ -68,12 +68,14 @@
 .form-group {
   width: 60%;
   margin: 0px, 0px, 0px;
+  height: 100%;
 }
 
 #form {
   padding-right: 20%;
   margin-left: -80px;
-
+  height: 100%;
+  overflow-y: auto;
 }
 
 
