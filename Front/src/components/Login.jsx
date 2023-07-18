@@ -16,7 +16,12 @@ export function Login () {
 
 		event.preventDefault();
 		const usuario = await API.Login({username, password})
-		console.log(usuario)
+		//Obtengo los campos//
+		const campos = usuario.datos[0]
+		//filtro el rol//
+		const rol = campos.rol
+		console.log(usuario.datos)
+		console.log('guardo correctamente el rol: ',rol)
 		
 		if(usuario.status){
 			console.log('se logeo correctamente')
@@ -28,7 +33,6 @@ export function Login () {
 			setSesion(sesion)
 			setUser('')
 			setPassword('')
-			//console.log(window.localStorage.getItem('aca tengo el token: ', 'token'))
 			//window.location.reload(true);
 		}else{
 			setMensajeError(usuario.mensaje)
