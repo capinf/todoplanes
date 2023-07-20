@@ -11,6 +11,7 @@ import { Adjudicados } from './components/Adjudicados'
 import  Planes  from './components/Planes'
 import { Usuarios } from './components/Usuario'
 import { useState, useEffect } from 'react'
+import TermsAndConditions from './components/TerminosYCondiciones'
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
       <Route path='/adjudicados' element ={<Adjudicados/>}></Route>
       <Route path='/planes' element ={<Planes />}></Route>
       <Route path='/usuario' element={<Usuarios/>}></Route>
+      <Route path='/terms' element={<TermsAndConditions/>}></Route>
       </Routes>
     </>
 

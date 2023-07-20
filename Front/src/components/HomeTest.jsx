@@ -7,6 +7,7 @@ import { useCars } from '../Hooks/useCars'
 import React, { useEffect, useState, useRef } from "react";
 import { useSearch } from "../Hooks/useSearch";
 import { PlanNormal } from './PlanNormal'
+import Footer from './Footer'
 
 
 
@@ -62,6 +63,9 @@ export function HomeTest() {
     <button className='whatsapplogoHome'>
       <a href="https://wa.link/2mwgso"><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></a>
       </button>
+      <div>
+          <Footer/>
+      </div>
     </footer>
     </>
     )
