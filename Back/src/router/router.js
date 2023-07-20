@@ -271,7 +271,7 @@ router.put('/edit_usuario/:id',(req, res)=>{
 router.get('/autosPremium', (req, res)=>{
 
        
-    mysqlConeccion.query('SELECT * FROM todoplanesweb.formulario where rolform = "premium"', (err, registro)=>{
+    mysqlConeccion.query('SELECT * FROM todoplanesweb.formulario where rolform = "premium" OR rolform = "admin"', (err, registro)=>{
         if(!err){
             res.json(registro);
         }else{

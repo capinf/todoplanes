@@ -24,12 +24,12 @@ function ListOfCars ({cars}) {
             <img className='card-image' src={car.img} alt="" />
             <h1 className='title'>{car.title}</h1>
             <div className="card-details">
-            <p className='info'>Precio: {car.precio}</p>
-            <p className='info'>Cuotas pagadas: {car.cuotas}</p>
-            <p className='info'>¿Adjudicado?: {car.adjudicado}</p>
-            <p className='info'>Localidad: {car.localidad}</p>
-            <p className='info'>Año de Inicio: {car.anio}</p>
-            <p className='info'>{car.telefono}</p>
+            <p className='infos'>Precio: {car.precio}</p>
+            <p className='infos'>Cuotas pagadas: {car.cuotas}</p>
+            <p className='infos'>¿Adjudicado?: {car.adjudicado}</p>
+            <p className='infos'>Localidad: {car.localidad}</p>
+            <p className='infos'>Año de Inicio: {car.anio}</p>
+            <p className='infos'>{car.telefono}</p>
             <button className='buttoncito'><img src="/img/buttoncito.png" alt="boton de contacto" width="100px" height="100px" /></button>
             <button className='whatsapplogo'><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></button>
             </div>
