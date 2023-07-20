@@ -11,7 +11,7 @@ export function Adjudicados() {
 
     return (
       <>
-      <h1>Adjudicados</h1>
+      <h1 style={{color:"white"}}>Adjudicados</h1>
       <div className="table-container">
         <Table className="adjudicados-table">
             <thead>

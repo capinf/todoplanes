@@ -1,6 +1,7 @@
 .adjudicados-table {
     justify-content: center;
     align-items: center;
+    color: white;
 }
 .imagen-table {
     width: 100%;
@@ -13,12 +14,14 @@
 }
 
 .info{
+    color: white;
     text-align: center;
     justify-content: center;
     transform: translateY(30%);
 }
 
 .column-adjudicados {
+    color: white;
     align-items: center;
     text-align: center;
 }
