@@ -15,7 +15,7 @@ function ListOfCars ({cars}) {
     return (
         <>
         <div className='Card'>
-      <div className='carta-autos'>
+        <div className='carta-autos'>
         <ul className='gridAutos'>
         {
         cars.map(car =>(

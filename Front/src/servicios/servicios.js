@@ -187,6 +187,30 @@ export async function getPlanesAPI(){
         console.log('Nuestro error es ', error);
     }
 }
+
+export async function getPlanesAPIpremium(){
+    try{
+
+        const response = await fetch(`${API_URL}/autosPremium`);
+        const data = await response.json();
+        return data;
+    
+    }catch(error){
+        console.log('Nuestro error es ', error);
+    }
+}
+
+export async function getPlanesAPInormal(){
+    try{
+
+        const response = await fetch(`${API_URL}/autosNormal`);
+        const data = await response.json();
+        return data;
+    
+    }catch(error){
+        console.log('Nuestro error es ', error);
+    }
+}
 //          ^^^^^^          //
 //          ||||||
 //TRAER DATOS DE TABLA PLANES//

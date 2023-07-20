@@ -6,9 +6,9 @@ import * as API from '../servicios/servicios'
 export function useCars ({ search }) {
     const [responseCars, setResponseCars] = useState([])
     
-    const cars = responseCars.Search
+    const planes = responseCars
 
-    const mappedCars = cars?.map(car =>({
+    const mappedCars = planes?.map(car =>({
         id: car.idFormulario,
         title: car.nombrePlan,
         precio: car.precio,

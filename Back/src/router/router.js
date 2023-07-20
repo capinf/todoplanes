@@ -268,6 +268,34 @@ router.put('/edit_usuario/:id',(req, res)=>{
 
 });
 
+router.get('/autosPremium', (req, res)=>{
+
+       
+    mysqlConeccion.query('SELECT * FROM todoplanesweb.formulario where rolform = "premium"', (err, registro)=>{
+        if(!err){
+            res.json(registro);
+        }else{
+            console.log(err)
+        }
+    })
+
+
+});
+
+router.get('/autosNormal', (req, res)=>{
+
+       
+    mysqlConeccion.query('SELECT * FROM todoplanesweb.formulario where rolform = "normal"', (err, registro)=>{
+        if(!err){
+            res.json(registro);
+        }else{
+            console.log(err)
+        }
+    })
+
+
+});
+
     /////////////////////////////////////////
     //GET DATOS TABLA FORMULARIOS DE PLANES//
     /////////////////////////////////////////
