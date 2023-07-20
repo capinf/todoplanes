@@ -60,7 +60,7 @@ export function HomeTest() {
     </div>
     <footer className='footerHome'>
     <button className='whatsapplogoHome'>
-      <a href="#"><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></a>
+      <a href="https://wa.link/2mwgso"><img src="/img/whatsappfree.png" alt="" width="100px" height="100px" /></a>
       </button>
     </footer>
     </>
