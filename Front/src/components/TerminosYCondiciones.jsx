@@ -9,9 +9,9 @@ Si no estás de acuerdo con ellos, por favor, no utilices esta plataforma. Esta 
 
 1.1.- Propiedad de la Web.
 
-La presente web la cual visita, es de la propiedad intelectual del Sr. “……………………………………..” 
-Documento Nacional de Identidad “…………………….” 
-Domiciliado en “…………………………………” de la ciudad de Posadas, Provincia de Misiones, Argentina.
+La presente web la cual visita, es de la propiedad intelectual del Sr. “Augusto Damian Quintana”.
+Documento Nacional de Identidad “46.390.673” 
+Domiciliado en “San Lorenzo 1869” de la ciudad de Posadas, Provincia de Misiones, Argentina.
 
 1.2. 
 Todo el contenido y material presente en ésta página web, incluyendo texto, gráficos, logotipos, imágenes y software, está protegido por derechos de propiedad intelectual.
