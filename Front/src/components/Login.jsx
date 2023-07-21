@@ -33,7 +33,7 @@ export function Login () {
 			setSesion(sesion)
 			setUser('')
 			setPassword('')
-			//window.location.reload(true);
+			window.location.href = '/';
 		}else{
 			setMensajeError(usuario.mensaje)
 			setTimeout(()=>{

@@ -23,10 +23,11 @@ export function useCars ({ search }) {
     const getCars = async () => {
         
         if (search) { 
+            console.log('console log dentro del if en useCars.js, valor del search:', search)
             //HACER ACÄ EL LLAMADO AL ENDPOINT -> SERVICIOS.JS -> BACKEND -> GET CONSULTA
             // setResponseCars(getAutosAPI())
-            const planes = await API.getPlanesAPI()
-            setResponseCars(planes)
+            //const planes = await API.getPlanesAPI(search)
+            //setResponseCars(planes)
 
         }else{
             setResponseCars(withoutresults)

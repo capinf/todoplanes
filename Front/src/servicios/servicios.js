@@ -176,10 +176,10 @@ export function UpdateUsuario(id, datos){
 
 //TRAER DATOS DE TABLA PLANES//
 // ENSAMBLAR SEGUN CORRESPONDA
-export async function getPlanesAPI(){
+export async function getPlanesAPI(datoSearch){
     try{
-
-        const response = await fetch(`${API_URL}/autos`);
+        const search = datoSearch
+        const response = await fetch(`${API_URL}/autos?search=${search}`);
         const data = await response.json();
         return data;
     

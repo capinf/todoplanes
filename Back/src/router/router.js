@@ -255,9 +255,8 @@ router.put('/edit_usuario/:id',(req, res)=>{
     /////////////////////////////////////////
 
     router.get('/autos', (req, res)=>{
-
-       
-        mysqlConeccion.query('select * from formulario', (err, registro)=>{
+        const searchTerm = req.query.search;
+        mysqlConeccion.query(`SELECT * FROM formulario WHERE nombrePlan LIKE '%${searchTerm}%'`, (err, registro)=>{
             if(!err){
                 res.json(registro);
             }else{

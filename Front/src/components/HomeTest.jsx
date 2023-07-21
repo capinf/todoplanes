@@ -15,17 +15,19 @@ export function HomeTest() {
 
     const { search, updateSearch, error} = useSearch()
     const { cars, getCars } = useCars({ search })
+    const [showCars, setShowCars] = useState(false);
   
 
     const handleSubmit = (event) => {
-      event.preventDefault()
-      console.log({search})
-      //getCars()
+      event.preventDefault();
+      console.log({search});
+      getCars(search);
+      setShowCars(true);
     }
   
     const handleChange = (event) => {
       updateSearch(event.target.value)
-  
+      setShowCars(false);
   }
 
   return (
@@ -45,7 +47,7 @@ export function HomeTest() {
     </div>
     </header>
     <div>
-    {search ? (
+    {showCars ? (
           <Cars cars={cars} />
         ) : (
           <div>
