@@ -21,8 +21,10 @@ export function HomeTest() {
     const handleSubmit = (event) => {
       event.preventDefault();
       console.log({search});
+      if (search != '') {
       getCars(search);
       setShowCars(true);
+      }
     }
   
     const handleChange = (event) => {
