@@ -4,6 +4,7 @@ const cors = require('cors')
 app.use(express.json());
 app.use(cors())
 const multer = require('multer');
+require('./cronJob');
 
 
 const morgan =require('morgan');
