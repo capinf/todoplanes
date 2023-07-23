@@ -22,6 +22,7 @@ export function PlanPremium () {
             <img className='card-image' src={plan.img} alt="" />
             <h1 className='title'>{plan.nombrePlan}</h1>
             <div className="card-details">
+            <p className='infos'>Tipo de Plan: {plan.tipoPlan}</p>
             <p className='infos'>Precio: {plan.precio}</p>
             <p className='infos'>Cuotas pagadas: {plan.cantidadCuotas}</p>
             <p className='infos'>¿Adjudicado?: {plan.adjudicado}</p>

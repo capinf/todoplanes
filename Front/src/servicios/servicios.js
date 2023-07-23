@@ -237,10 +237,11 @@ export async function getPlanesAPInormal(){
 ////// CARGA DE DATOS FORM PLANES////////////
 ////////////////////////////////////////////
 export async function cargarFormulario(formData) {
-    const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath, rolform } = formData;
+    const { nombrePlan, tipoPlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath, rolform } = formData;
 
     const form = new FormData();
     form.append('nombrePlan', nombrePlan);
+    form.append('tipoPlan', tipoPlan);
     form.append('precio', precio);
     form.append('cantidadCuotas', cantidadCuotas);
     form.append('adjudicado', adjudicado);

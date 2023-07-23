@@ -11,6 +11,7 @@ export function useCars ({ search }) {
     const mappedCars = planes?.map(car =>({
         id: car.idFormulario,
         title: car.nombrePlan,
+        tipoPlan: car.tipoPlan,
         precio: car.precio,
         cuotas: car.cantidadCuotas,
         adjudicado: car.adjudicado,

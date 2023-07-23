@@ -10,6 +10,7 @@ export function CargaAutos () {
 
   const [formData, setFormData] = useState({
     nombrePlan: '',
+    tipoPlan: '',
     precio: '',
     cantidadCuotas: '',
     adjudicado: '',
@@ -46,6 +47,7 @@ export function CargaAutos () {
       // Reiniciar los valores de los campos después de enviar
       setFormData({
         nombrePlan: '',
+        tipoPlan: '',
         precio: '',
         cantidadCuotas: '',
         adjudicado: '',
@@ -82,6 +84,25 @@ export function CargaAutos () {
             />
             <label htmlFor="nombrePlan" className="text">Nombre del Plan</label>
           </div>
+
+          <div className="form-group">
+          <label htmlFor="tipoPlan" className="text">
+            <select
+              required
+              type="text"
+              className="form-control"
+              id="tipoPlan"
+              name="tipoPlan"
+              value={formData.tipoPlan}
+              onChange={handleChange}
+              >
+              <option value="100%">100%</option>
+              <option value="80% - 20%">80% - 20%</option>
+              <option value="70% - 30%">70% - 30%</option>
+            </select>
+            Tipo de Plan</label>
+          </div>
+
           <div className="form-group">
             <input
               required
@@ -104,10 +125,12 @@ export function CargaAutos () {
               value={formData.cantidadCuotas}
               onChange={handleChange}
             />
-            <label htmlFor="carCondition" className="text">Cantidad de Cuotas</label>
+            <label htmlFor="carCondition" className="text">Cantidad de Cuotas Pagadas</label>
           </div>
+
           <div className="form-group">
-            <input
+          <label htmlFor="adjudicado" className="text">
+            <select
               required
               type="text"
               className="form-control"
@@ -115,11 +138,13 @@ export function CargaAutos () {
               name="adjudicado"
               value={formData.adjudicado}
               onChange={handleChange}
-            />
-            <label htmlFor="adjudicado" className="text">¿Adjudicado?</label>
-
-
+              >
+              <option value="SI">SI</option>
+              <option value="NO">NO</option>
+            </select>
+            ¿Adjudicado?</label>
           </div>
+
           <div className="form-group">
             <input
               required

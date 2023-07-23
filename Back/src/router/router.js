@@ -226,12 +226,12 @@ router.put('/edit_usuario/:id',(req, res)=>{
 
         console.log('console log en router js req body: ', req.body);
         console.log('console log en router js req body: ', req.file)
-        const { nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, rolform } = req.body
+        const { nombrePlan, tipoPlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, rolform } = req.body
         const imgPath = req.file ? req.file.path : '';
         console.log('el img path es ', imgPath)
     
-                let query=`INSERT INTO formulario (nombrePlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath, rolform, fecha) 
-                VALUES ('${nombrePlan}', '${precio}', '${cantidadCuotas}', '${adjudicado}', '${anioInicio}', '${localidad}', '${telefono}', '${imgPath}', '${rolform}', NOW())`;
+                let query=`INSERT INTO formulario (nombrePlan, tipoPlan, precio, cantidadCuotas, adjudicado, anioInicio, localidad, telefono, imgPath, rolform, fecha) 
+                VALUES ('${nombrePlan}', '${tipoPlan}','${precio}', '${cantidadCuotas}', '${adjudicado}', '${anioInicio}', '${localidad}', '${telefono}', '${imgPath}', '${rolform}', NOW())`;
                 mysqlConeccion.query(query, (err, registros)=>{
                     if(!err){
                         res.json({

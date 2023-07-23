@@ -24,6 +24,7 @@ function ListOfCars ({cars}) {
             <img className='card-image' src={car.img} alt="" />
             <h1 className='title'>{car.title}</h1>
             <div className="card-details">
+            <p className='infos'>Tipo de Plan: {car.tipoPlan}</p>
             <p className='infos'>Precio: {car.precio}</p>
             <p className='infos'>Cuotas pagadas: {car.cuotas}</p>
             <p className='infos'>¿Adjudicado?: {car.adjudicado}</p>
