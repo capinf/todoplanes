@@ -45,6 +45,13 @@ const Planes = () => {
           alt="Imagen 3"
         />
       </Carousel.Item>
+      <Carousel.Item>
+        <img
+          className="d-block w-100"
+          src="/img/infoplanes4.svg"
+          alt="Imagen 3"
+        />
+      </Carousel.Item>
     </Carousel>
     </>
   );
